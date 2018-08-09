@@ -7,9 +7,9 @@ RUN mkdir -p $INSTALL_PATH
 
 WORKDIR $INSTALL_PATH
 
-COPY Gemfile Gemfile.lock $INSTALL_PATH
+COPY Gemfile $INSTALL_PATH
 RUN bundle install
 
 COPY . $INSTALL_PATH
 
-CMD bundle exec karafka server
+CMD ["/bin/sh","entrypoint.sh"]
